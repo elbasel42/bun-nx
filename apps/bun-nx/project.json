@@ -1,0 +1,9 @@
+{
+  "name": "bun-nx",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bun-nx",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project bun-nx --web",
+  "targets": {}
+}
