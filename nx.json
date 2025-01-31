@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -14,7 +17,7 @@
     ],
     "sharedGlobals": []
   },
-  "nxCloudId": "679d128e1b7ca96d676778fa",
+  "nxCloudId": "679d3857650d7121cf4b6a8f",
   "plugins": [
     {
       "plugin": "@nx/next/plugin",
@@ -38,7 +41,8 @@
       "options": {
         "targetName": "lint"
       }
-    }
+    },
+    "@nxtensions/astro"
   ],
   "generators": {
     "@nx/next": {
@@ -46,6 +50,24 @@
         "style": "tailwind",
         "linter": "eslint"
       }
+    },
+    "@nx/web:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "none",
+      "e2eTestRunner": "none"
+    }
+  },
+  "targetDefaults": {
+    "@nx/js:swc": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     }
   }
 }
